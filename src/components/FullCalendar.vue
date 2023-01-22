@@ -5,6 +5,9 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 import interactionPlugin from '@fullcalendar/interaction'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import listPlugin from '@fullcalendar/list'
+import resourceTimelinePlugin from '@fullcalendar/resource-timeline'
+import resourceTimeGridPlugin from '@fullcalendar/resource-timegrid'
+import adaptivePlugin from '@fullcalendar/adaptive'
 
 const calendarEl = ref(null)
 const today = new Date()
@@ -21,7 +24,16 @@ const YESTERDAY = y_yyyy + '-' + y_mm + '-' + y_dd
 const TODAY = yyyy + '-' + mm + '-' + dd
 
 const calendarOptions = {
-  plugins: [dayGridPlugin, interactionPlugin, timeGridPlugin, listPlugin],
+  schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
+  plugins: [
+    dayGridPlugin,
+    interactionPlugin,
+    timeGridPlugin,
+    listPlugin,
+    resourceTimelinePlugin,
+    resourceTimeGridPlugin,
+    adaptivePlugin,
+  ],
   timeZone: 'UTC',
   initialView: 'dayGridMonth',
   themeSystem: 'bootstrap',
