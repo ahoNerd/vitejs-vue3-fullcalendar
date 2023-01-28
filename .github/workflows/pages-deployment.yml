@@ -1,0 +1,26 @@
+name: Cloudflare Pages CI
+
+on: [push]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    name: Deploy to Cloudflare Pages
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Build
+        run: npm install && npm run build
+
+      - name: Publish
+        uses: cloudflare/pages-action@1
+        with:
+          apiToken: KG4rMz8UPmHH8BQoiYC7fSSYw3ckQgD8ZS04qNjI
+          accountId: b51af05ca5647ed1b39e820cdabe392c
+          projectName: ahofullcal
+          directory: dist
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
